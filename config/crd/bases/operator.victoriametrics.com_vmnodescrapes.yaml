@@ -425,8 +425,13 @@ spec:
                     ScrapeInterval is the same as Interval and has priority over it.
                     one of scrape_interval or interval can be used
                   type: string
+                scrape_protocols:
+                  description: ScrapeProtocols defines Prometheus scrape protocol.
+                  items:
+                    type: string
+                  type: array
                 scrapeTimeout:
-                  description: Timeout after which the scrape is ended
+                  description: ScrapeTimeout after which the scrape is ended
                   type: string
                 selector:
                   description: Selector to select kubernetes Nodes.

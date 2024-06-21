@@ -844,6 +844,11 @@ func (in *Endpoint) DeepCopyInto(out *Endpoint) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.ScrapeProtocols != nil {
+		in, out := &in.ScrapeProtocols, &out.ScrapeProtocols
+		*out = make([]string, len(*in))
+		copy(*out, *in)
+	}
 	if in.OAuth2 != nil {
 		in, out := &in.OAuth2, &out.OAuth2
 		*out = new(OAuth2)
@@ -1637,6 +1642,11 @@ func (in *PodMetricsEndpoint) DeepCopyInto(out *PodMetricsEndpoint) {
 		in, out := &in.FollowRedirects, &out.FollowRedirects
 		*out = new(bool)
 		**out = **in
+	}
+	if in.ScrapeProtocols != nil {
+		in, out := &in.ScrapeProtocols, &out.ScrapeProtocols
+		*out = make([]string, len(*in))
+		copy(*out, *in)
 	}
 	if in.HonorTimestamps != nil {
 		in, out := &in.HonorTimestamps, &out.HonorTimestamps
@@ -2647,6 +2657,11 @@ func (in *TargetEndpoint) DeepCopyInto(out *TargetEndpoint) {
 		in, out := &in.FollowRedirects, &out.FollowRedirects
 		*out = new(bool)
 		**out = **in
+	}
+	if in.ScrapeProtocols != nil {
+		in, out := &in.ScrapeProtocols, &out.ScrapeProtocols
+		*out = make([]string, len(*in))
+		copy(*out, *in)
 	}
 	if in.OAuth2 != nil {
 		in, out := &in.OAuth2, &out.OAuth2
@@ -5164,6 +5179,11 @@ func (in *VMNodeScrapeSpec) DeepCopyInto(out *VMNodeScrapeSpec) {
 		in, out := &in.FollowRedirects, &out.FollowRedirects
 		*out = new(bool)
 		**out = **in
+	}
+	if in.ScrapeProtocols != nil {
+		in, out := &in.ScrapeProtocols, &out.ScrapeProtocols
+		*out = make([]string, len(*in))
+		copy(*out, *in)
 	}
 	if in.OAuth2 != nil {
 		in, out := &in.OAuth2, &out.OAuth2

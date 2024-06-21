@@ -140,7 +140,7 @@ type Endpoint struct {
 	// one of scrape_interval or interval can be used
 	// +optional
 	ScrapeInterval string `json:"scrape_interval,omitempty"`
-	// Timeout after which the scrape is ended
+	// ScrapeTimeout after which the scrape is ended
 	// +optional
 	ScrapeTimeout string `json:"scrapeTimeout,omitempty"`
 	// SampleLimit defines per-endpoint limit on number of scraped samples that will be accepted.
@@ -150,6 +150,9 @@ type Endpoint struct {
 	// a single target can expose during all the scrapes on the time window of 24h.
 	// +optional
 	SeriesLimit uint64 `json:"seriesLimit,omitempty"`
+	// ScrapeProtocols defines Prometheus scrape protocol.
+	// +optional
+	ScrapeProtocols []string `json:"scrape_protocols,omitempty"`
 	// OAuth2 defines auth configuration
 	// +optional
 	OAuth2 *OAuth2 `json:"oauth2,omitempty"`

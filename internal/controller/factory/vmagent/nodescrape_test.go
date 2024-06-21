@@ -96,6 +96,7 @@ relabel_configs:
 						FollowRedirects: pointer.Bool(true),
 						ScrapeTimeout:   "10s",
 						ScrapeInterval:  "5s",
+						ScrapeProtocols: []string{"PrometheusProto"},
 						Params:          map[string][]string{"module": {"client"}},
 						JobLabel:        "env",
 						HonorTimestamps: pointer.Bool(true),
@@ -134,6 +135,8 @@ honor_timestamps: true
 kubernetes_sd_configs:
 - role: node
 scrape_interval: 5s
+scrape_protocols:
+- PrometheusProto
 scrape_timeout: 10s
 metrics_path: /metrics
 proxy_url: https://some-url

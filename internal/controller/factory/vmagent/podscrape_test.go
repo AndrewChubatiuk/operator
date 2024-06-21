@@ -158,6 +158,10 @@ relabel_configs:
 					},
 				},
 				ep: vmv1beta1.PodMetricsEndpoint{
+					ScrapeProtocols: []string{
+						"PrometheusText",
+						"PrometheusProto",
+					},
 					Path: "/metric",
 					Port: "web",
 				},
@@ -170,6 +174,9 @@ kubernetes_sd_configs:
   selectors:
   - role: pod
     label: label-1=value-1,label-2=value-2,label-3=value-3
+scrape_protocols:
+- PrometheusText
+- PrometheusProto
 metrics_path: /metric
 relabel_configs:
 - action: drop

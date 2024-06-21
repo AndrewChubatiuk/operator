@@ -185,6 +185,10 @@ relabel_configs:
 					},
 					BearerTokenFile: "/var/run/tolen",
 					ScrapeInterval:  "60m",
+					ScrapeProtocols: []string{
+						"PrometheusText",
+						"OpenMetricsText",
+					},
 				},
 				i:                        0,
 				apiserverConfig:          nil,
@@ -202,6 +206,9 @@ kubernetes_sd_configs:
     names:
     - default
 scrape_interval: 40m
+scrape_protocols:
+- PrometheusText
+- OpenMetricsText
 tls_config:
   insecure_skip_verify: false
   ca_file: /etc/vmagent-tls/certs/default_tls-secret_ca
